@@ -17,3 +17,5 @@ pygments: true
 exclude:
   - README.markdown
   - _drafts
+
+production_url : http://blog.treeptik.fr
