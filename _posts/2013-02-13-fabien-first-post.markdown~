@@ -1,0 +1,21 @@
+---
+layout: post
+title: Fabien first post
+excerpt: 
+comments: true
+---
+### Mon super titre 1
+bla bla bla psjd posdcj skdcj sdocj sdocj 
+
+### Mon suer titre 2
+
+{% highlight java %}
+	public static void superStaticMethode(String arg){
+		return value;
+	}
+{% endhighlight %}
+
+### Autre Titre 1
+
+* super puce 1
+* super puce 1
