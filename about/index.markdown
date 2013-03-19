@@ -9,7 +9,7 @@ L'équipe de développeur est composée de 4 personnes venant d'univers différe
 
 ###Fabien Amico
 
-Notre maître à tous!!
+Entrepreneur et passionné de nouvelles technologies. Expert en Java JEE s'intéresse aussi à des techno comme NodeJS, NoSQL ou Vert.X
 
 ###Loïc Carnot
 
