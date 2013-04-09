@@ -19,7 +19,3 @@ exclude:
   - _drafts
 
 production_url : http://blog.treeptik.fr
-
-tag_page_layout: tag_page
-tag_page_dir: tag
-

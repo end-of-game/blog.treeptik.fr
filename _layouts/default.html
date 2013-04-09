@@ -35,12 +35,16 @@
         {{ content }}
       </div>
       <div class="span-5 last" id="sidebar">
-        <div class="sidebarbox"> 
+        <div class="sidebarbox">
+{% include tagCloud.html %} 
           <h4>Menu</h4> 
           <ul id="pages">
 	        <li>
               <a rel="bookmark" title="Home" href="/">Accueil</a>
             </li>
+	    <li>
+               <a href="/tag">Tag</a>
+	    </li>
             <li>
               <a rel="bookmark" title="About" href="/about">Team</a>
             </li>
@@ -53,7 +57,7 @@
           <h4>Flux</h4> 
           <ul> 
             <li> 
-              <a title="RSS Feed" href="/feed/idnex.xml" class="icon-link" id="feed-link">RSS</a> 
+              <a title="RSS Feed" href="/feed/index.xml" class="icon-link" id="feed-link">RSS</a> 
             </li> 
           </ul> 
         </div> 
@@ -83,5 +87,17 @@
     {% include disqus.html %}
     <script src="/js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'treeptikblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
   </body>
 </html>

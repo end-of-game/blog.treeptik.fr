@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Archives | Treeptik Blog</title>
+  <title>Presentation de Jekyll | Treeptik Blog</title>
   <meta name="description" content="Blog des ingénieurs de treeptik" />
   <meta name="author" content="treeptik-team" />
   <meta name="robots" content="index, follow" />
@@ -62,26 +62,77 @@
       <div class="span-16" id="content">
         <article class="post">
 
-  <h2>Archives</h2>
+  <h2><a href="http://blog.treeptik.fr/2013/03/presentation-de-jekyll" rel="bookmark permalink" title="Permanent link to this post">Presentation de Jekyll</a></h2>
 
-  <p>Listing 3 archived posts:</p>
+  <h3>Quand utiliser Jekyll?</h3>
+
 <ul>
-
-  <li>
-    Mar 31, 2013 &mdash; <a href="/2013/03/presentation-de-jekyll">Presentation de Jekyll</a>
-  </li>
-
-  <li>
-    Mar 13, 2013 &mdash; <a href="/2013/03/un-onclicklistener-pour-les-gouverner-tous">Un onClickListener pour les gouverner tous !!</a>
-  </li>
-
-  <li>
-    Feb 15, 2013 &mdash; <a href="/2013/02/le-generique-dao-oui-mais-avec-un-generique-service">Le générique DAO oui mais avec un générique service</a>
-  </li>
-
+<li>Pour un site statique - Blog - sans base de données</li>
+<li>simplicité</li>
+<li>génération automatique</li>
 </ul>
 
+
+<p>markdow</p>
+
+<p>mise en page très simple</p>
+
+<h3>_layouts</h3>
+
+<p>Ce dossier contient les templates de base de votre site.<br/>
+Le fichier layout.html est le fichier de base pour le moment, celui à partir duquel un grand nombre des pages de votre site seront générées. En effet, grâce au YAML front matter, un en-tête que vous allez rajouter à chacun de vos fichiers, vous allez définir quel template utiliser pour ce fichier. Cela va donc vous permettre d’utiliser des structures différentes pour différentes pages, un design différent…</p>
+
+<h3>_post</h3>
+
+<p>dossier où sont localisées les articles.</p>
+
+<h3>DISQUS</h3>
+
+<p>un compte DISQUS pour gérer les commentaires du site.</p>
+
+<h3>Commandes</h3>
+
+<ul>
+<li><p>Crée un fichier dans le dossier _post
+rake post title="Presentation de Jekyll"</p></li>
+<li><p>Commande principale: jekyll</p></li>
+<li><p>Pour déployer localement le site généré :
+jekyll --server -- auto</p></li>
+</ul>
+
+
+
+<a class="follow-box" href="https://twitter.com/treeptikteam">
+  <h3>Suivez <strong>@treeptikTeam</strong> sur Twitter</h3>
+</a>
+
+  <div class="meta">
+   <div class="published">
+    Publié le : 31-03-2013
+	Auteur : Hervé Fontbonne
+   </div>
+
+   <div class="tweet"><a href="http://twitter.com/?status=Reading 'Presentation de Jekyll' from http://blog.treeptik.fr/2013/03/presentation-de-jekyll by @treeptikteam" title="Tweet Presentation de Jekyll">Partagez l'article</a>	</div>
+  </div>
+
 </article>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'treeptikblog'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    // var disqus_identifier = 'unique_dynamic_id_1234';
+    var disqus_url = 'http://blog.treeptik.fr/2013/03/presentation-de-jekyll';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
 
       </div>
       <div class="span-5 last" id="sidebar">
