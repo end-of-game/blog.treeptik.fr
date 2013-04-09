@@ -2,46 +2,39 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://blog.treeptik.fr/</loc>
-    <lastmod>2013-03-31T16:06:34+02:00</lastmod>
+    <lastmod>2013-03-18T15:02:13+01:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.treeptik.fr/archives.html</loc>
-    <lastmod>2013-03-31T16:06:34+02:00</lastmod>
+    <lastmod>2013-03-18T15:02:13+01:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>http://blog.treeptik.fr/about.html</loc>
-    <lastmod>2013-03-31T16:06:34+02:00</lastmod>
+    <lastmod>2013-03-18T15:02:13+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>http://blog.treeptik.fr/links.html</loc>
-    <lastmod>2013-03-31T16:06:34+02:00</lastmod>
+    <lastmod>2013-03-18T15:02:13+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
     <url>
-      <loc>http://blog.treeptik.fr/2013/03/presentation-de-jekyll</loc>
-      <lastmod>2013-03-31T16:06:34+02:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.2</priority>
-    </url>
-  
-    <url>
       <loc>http://blog.treeptik.fr/2013/03/un-onclicklistener-pour-les-gouverner-tous</loc>
-      <lastmod>2013-03-31T16:06:34+02:00</lastmod>
+      <lastmod>2013-03-18T15:02:13+01:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.2</priority>
     </url>
   
     <url>
-      <loc>http://blog.treeptik.fr/2013/02/le-generique-dao-oui-mais-avec-un-generique-service</loc>
-      <lastmod>2013-03-31T16:06:34+02:00</lastmod>
+      <loc>http://blog.treeptik.fr/2013/02/le-ge%CC%81ne%CC%81rique-dao-oui-mais-avec-un-ge%CC%81ne%CC%81rique-service</loc>
+      <lastmod>2013-03-18T15:02:13+01:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.2</priority>
     </url>

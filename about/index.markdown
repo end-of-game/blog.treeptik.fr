@@ -13,7 +13,7 @@ Entrepreneur et passionné de nouvelles technologies. Expert en Java JEE s'inté
 
 ###Loïc Carnot
 
-Ingénieur d'études Java EE, positionné aussi sur l'offre mobile, intéressé par la programmation multi-plateforme (phoneGap, cordova. 
+Ingénieur d'études Java EE, positionné aussi sur l'offre mobile, intéressé par la programmation multi-plateforme. 
 
 ###Hervé Fontbonne
 
@@ -21,4 +21,4 @@ Ingénieur d'études Java EE, organisé (essaye), avide d'astuces, de conseils. 
 
 ###Guillaume Martial
 
-Ingénieur d'études Java EE, intéressé par les PaaS (Platform as a service) tel que openshift et les services d'intégration continue comme Jenkins.
+Ingénieur d'études Java EE, intéressé par les PaaS (Platform as a service), le fonctionnement d'eclipse.

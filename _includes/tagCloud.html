@@ -14,18 +14,19 @@ math very well and you have to use filters.
 For more Jekyll widgets, see <http://www.github.com/NetzwergX/jekyll-template-toolkit>.
 {% endcomment %}
 <section>
-
-<h4>Tags<span class="hint">({{site.tags.size}})</span></h4>	
+<div class="box">
+<h2>Tags<span class="hint">({{site.tags.size}})</span></h2>	
 
 <div class="tagCloud">
 {% for tag in site.tags %}
 
 <a href="tags.html#{{ tag | first | cgi_encode }}"
-style="font-size:{{tag | last | size | times:100 | divided_by:site.tags.size | plus:70}}%">
+style="font-size:{{tag | last | size | times:100 | divided_by:site.tags.size | plus:100}}%">
 {{ tag | first }}</a>
 {% unless forloop.last %}, {% endunless %}
 
 {% endfor %}
+</div>
 </div>
 </section>
 

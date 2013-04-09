@@ -3,12 +3,13 @@ layout: post
 title: Présentation de Jekyll
 author: Hervé Fontbonne
 tags:
-- android
-- onClick
-- mobile
 - jekyll
+- markdown
+- site statique
+published: true
 excerpt: 
 comments: true
+description: Cet article présente un aperçu de l'outil de génération de pages utilisé pour créer ce blog, jekyll. Il introduira les différents composants utilisés pour pouvoir rapidement comprendre le fonctionnement de jekyll. Quelques outils externes et le langage de balisage markdown seront évoqués.
 ---
 
 ###Préambule
@@ -187,7 +188,7 @@ donne :
 
 **{ % highlight java % }** (sans espace entre { et %).  
 Mon bout de code en java   
-**{ % endhighlight % }** (sans espace entre % et })
+**{ % endhighlight % }** (sans espace entre { et %)
 
 {% highlight java %}
 @Stateless

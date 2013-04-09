@@ -4,11 +4,7 @@ layout: default
 <article class="post">
 
   <h2><a href="{{ site.url }}{{ page.url }}" rel="bookmark permalink" title="Permanent link to this post">{{ page.title }}</a></h2>
-<div class="meta">
-	<div class="published">
-{% if page.date %} Publié le : {{ page.date | date: "%d-%m-%Y" }} &mdash; Tags: {{ page | tags }}{% endif %}
-	</div>
-</div>
+
   {{ content }}
 
 <a class="follow-box" href="https://twitter.com/treeptikteam">

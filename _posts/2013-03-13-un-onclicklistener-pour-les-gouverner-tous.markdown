@@ -3,10 +3,6 @@ layout: post
 title: Un onClickListener pour les gouverner tous !!
 author: Loïc Carnot
 published: true
-tags:
-- android
-- onClick
-- mobile
 excerpt: 
 comments: true
 ---

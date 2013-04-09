@@ -4,57 +4,13 @@
  <title>Treeptik - Blog</title>
  <link href="http://blog.treeptik.fr/feed/" rel="self"/>
  <link href="http://blog.treeptik.fr/"/>
- <updated>2013-03-31T16:06:34+02:00</updated>
+ <updated>2013-03-18T15:02:13+01:00</updated>
  <id>http://blog.treeptik.fr/</id>
  <author>
    <name>Treeptik</name>
    <email>contact@treeptik.fr</email>
  </author>
 
- 
- <entry>
-   <title>Presentation de Jekyll</title>
-   <link href="http://blog.treeptik.fr/2013/03/presentation-de-jekyll"/>
-   <updated>2013-03-31T00:00:00+01:00</updated>
-   <id>http://blog.treeptik.fr/2013/03/presentation-de-jekyll</id>
-   <content type="html">&lt;h3&gt;Quand utiliser Jekyll?&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Pour un site statique - Blog - sans base de données&lt;/li&gt;
-&lt;li&gt;simplicité&lt;/li&gt;
-&lt;li&gt;génération automatique&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;markdow&lt;/p&gt;
-
-&lt;p&gt;mise en page très simple&lt;/p&gt;
-
-&lt;h3&gt;_layouts&lt;/h3&gt;
-
-&lt;p&gt;Ce dossier contient les templates de base de votre site.&lt;br/&gt;
-Le fichier layout.html est le fichier de base pour le moment, celui à partir duquel un grand nombre des pages de votre site seront générées. En effet, grâce au YAML front matter, un en-tête que vous allez rajouter à chacun de vos fichiers, vous allez définir quel template utiliser pour ce fichier. Cela va donc vous permettre d’utiliser des structures différentes pour différentes pages, un design différent…&lt;/p&gt;
-
-&lt;h3&gt;_post&lt;/h3&gt;
-
-&lt;p&gt;dossier où sont localisées les articles.&lt;/p&gt;
-
-&lt;h3&gt;DISQUS&lt;/h3&gt;
-
-&lt;p&gt;un compte DISQUS pour gérer les commentaires du site.&lt;/p&gt;
-
-&lt;h3&gt;Commandes&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Crée un fichier dans le dossier _post
-rake post title=&quot;Presentation de Jekyll&quot;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Commande principale: jekyll&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Pour déployer localement le site généré :
-jekyll --server -- auto&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</content>
- </entry>
  
  <entry>
    <title>Un onClickListener pour les gouverner tous !!</title>
@@ -220,9 +176,9 @@ jekyll --server -- auto&lt;/p&gt;&lt;/li&gt;
  
  <entry>
    <title>Le générique DAO oui mais avec un générique service</title>
-   <link href="http://blog.treeptik.fr/2013/02/le-generique-dao-oui-mais-avec-un-generique-service"/>
+   <link href="http://blog.treeptik.fr/2013/02/le-ge%CC%81ne%CC%81rique-dao-oui-mais-avec-un-ge%CC%81ne%CC%81rique-service"/>
    <updated>2013-02-15T00:00:00+01:00</updated>
-   <id>http://blog.treeptik.fr/2013/02/le-generique-dao-oui-mais-avec-un-generique-service</id>
+   <id>http://blog.treeptik.fr/2013/02/le-générique-dao-oui-mais-avec-un-générique-service</id>
    <content type="html">&lt;p&gt;Très souvent on trouve sur les projets l'implémentation du &lt;strong&gt;design pattern GenericDAO&lt;/strong&gt; qui permet de ne pas répéter le code des méthodes CRUD pour l'ensemble des entités. Très bien mais dans une architecture en couche de service (qu'on retrouve encore très souvent dans les projets) ce pattern doit être couplé avec un &lt;strong&gt;GenerciService&lt;/strong&gt; si on ne veut pas répéter le &lt;em&gt;&quot;glue code&quot;&lt;/em&gt; si problématique dans les services.&lt;/p&gt;
 
 &lt;h3&gt;Implémentation&lt;/h3&gt;

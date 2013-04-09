@@ -2,17 +2,17 @@
 layout: default
 title: Home
 ---
-
 <div style="font-size: 16px">
 Bienvenue sur ce blog. Son but : vous faire partagez notre expérience. L'idée est de présenter des astuces techniques ou des articles plus poussés sur des technologies Java, Java EE essentiellement ou tout ce qui nous a paru intéressant. En espérant que cela vous soit utile autant qu'à nous.  
 </div>
 <br />
 
-<h3> Tags:</h3>
-<div style="font-size: 18px">  {{ site | tag_cloud }}</div>
+{% include tagCloud.html %}
 
 {% for post in paginator.posts %}
   <article class="post">
+
+
 
     <h2><a href="{{ post.url }}" rel="bookmark permalink" title="Permanent link to this post">{{ post.title }}</a></h2>
   <div class="meta">
