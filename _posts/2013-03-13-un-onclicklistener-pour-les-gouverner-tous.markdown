@@ -2,9 +2,13 @@
 layout: post
 title: Un onClickListener pour les gouverner tous !!
 author: Loïc Carnot
+tags:
+- mobile
+- android
 published: true
 excerpt: 
 comments: true
+description: Lors du développement d'applications <strong>Android</strong>, il est très vite nécessaire de définir des actions lors du click de souris sur différents composants de notre application. Pour se faire, on utilise une méthode "onClick" fournie par l'interface onClickListener. Dans de nombreux cas on définit cette méthode de façon anonyme pour chaque composant implémentant la méthode "onClick". Cette surcharge inutile du code peut être évitée afin d'obtenir un code plus lisible.
 ---
 
 Lors du développement d'applications **Android**, il est très vite nécessaire de définir des actions lors du click de souris sur différents composants de notre application. Pour se faire, on utilise une méthode "onClick" fournie par l'interface **onClickListener**. Dans de nombreux cas on définit cette méthode de façon anonyme pour chaque composant implémentant la méthode "onClick". Cette surcharge inutile du code peut être évitée afin d'obtenir un code plus lisible.  

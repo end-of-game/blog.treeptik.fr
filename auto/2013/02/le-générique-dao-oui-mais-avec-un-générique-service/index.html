@@ -1,0 +1,235 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Le générique DAO oui mais avec un générique service | Treeptik Blog</title>
+  <meta name="description" content="Blog des ingénieurs de treeptik" />
+  <meta name="author" content="treeptik-team" />
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="user-scalable=no,width=device-width" />
+  <meta name="keywords" content="Treeptik expertise Java" />
+  <meta name="copyright" content="Copyright 2012 to Present"/>
+  <meta name="google-site-verification" content="XUkxAz2T7iH7BfeNCKk88xUnTqNHjnMirb4GQv196GA" />
+  <link href="http://blog.treeptik.fr/feed" rel="alternate" title="Treeptik RSS feed" type="application/rss+xml" />
+  <link href="http://blog.treeptik.fr/" rel="home" />
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link type="text/css" rel="stylesheet" media="screen, projection" href="/css/screen.css" /> 
+  <link type="text/css" rel="stylesheet" media="all" href="/css/custom.css" />
+  <!--[if lt IE 8]>
+    <link type="text/css" rel="stylesheet" media="screen, projection" href="/css/ie.css" />
+  <![endif]--> 
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <script>
+  // Preload font files and finally patch CSS with custom fonts.
+  // We do this to avoid displaying unreadable text while waiting for data.
+  function finalizer() {
+    var n = document.createElement('link');
+    n.href = '/css/screen.css';
+    n.media = 'screen, projection';
+    n.rel = 'stylesheet';
+    n.type = 'text/css';
+    document.getElementsByTagName('head').item(0).appendChild(n);
+  }
+  var countdown = 1;
+  function fetch(url) {
+    try {
+      var req = new XMLHttpRequest();
+      req.open('GET', url, true);
+      req.onreadystatechange = function () { if (req.readyState == 4) {
+        if (--countdown === 0)
+          finalizer()
+      }};
+      req.send();
+    } catch (e) {}
+  }
+  fetch('http://tjstein.com/fonts/DroidSans-webfont.woff');
+  fetch('http://tjstein.com/fonts/DroidSans-webfont.ttf');
+  fetch('http://tjstein.com/fonts/YanoneKaffeesatz-Regular-webfont.woff');
+  fetch('http://tjstein.com/fonts/YanoneKaffeesatz-Regular-webfont.ttf');
+  if (--countdown === 0) finalizer();
+  </script>
+  <script>var _gaq=[['_setAccount','UA-9191070-10'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;g.src='//tjstein.com/js/ga.js';s.parentNode.insertBefore(g,s)})(document,'script')</script>	
+</head>
+  <body>
+    <div class="container">
+      <header class="span-21 last" id="header">
+			<a href="http://blog.treeptik.fr" rel="home bookmark"><img src="images/logo-blog.png" alt="Treeptik Blog"/> </a>
+      </header>
+
+      <div class="span-16" id="content">
+        <article class="post">
+
+  <h2><a href="http://blog.treeptik.fr/2013/02/le-ge%CC%81ne%CC%81rique-dao-oui-mais-avec-un-ge%CC%81ne%CC%81rique-service" rel="bookmark permalink" title="Permanent link to this post">Le générique DAO oui mais avec un générique service</a></h2>
+
+  <p>Très souvent on trouve sur les projets l'implémentation du <strong>design pattern GenericDAO</strong> qui permet de ne pas répéter le code des méthodes CRUD pour l'ensemble des entités. Très bien mais dans une architecture en couche de service (qu'on retrouve encore très souvent dans les projets) ce pattern doit être couplé avec un <strong>GenerciService</strong> si on ne veut pas répéter le <em>"glue code"</em> si problématique dans les services.</p>
+
+<h3>Implémentation</h3>
+
+<p>Ici nous allons voir une implémentation avec des <em>EJB Session</em> mais vous pouvez tout à fait l'adapter avec d'autre framework d'injection comme Spring par exemple.</p>
+
+<div class="highlight"><pre><code class="java"><span class="nd">@Stateless</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">GenericService</span> <span class="o">&lt;</span><span class="n">T</span> <span class="kd">extends</span> <span class="n">GenericDAO</span><span class="o">&lt;</span><span class="n">E</span><span class="o">,</span> <span class="n">K</span><span class="o">&gt;,</span> <span class="n">E</span> <span class="kd">extends</span> <span class="n">GenericModel</span><span class="o">&lt;</span><span class="n">K</span><span class="o">&gt;,</span> <span class="n">K</span><span class="o">&gt;</span> <span class="o">{</span>
+    
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="n">T</span> <span class="nf">getDao</span><span class="o">()</span> <span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="n">E</span> <span class="nf">create</span><span class="o">(</span><span class="n">E</span> <span class="n">entite</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ServiceException</span><span class="o">{</span>
+        <span class="k">try</span><span class="o">{</span>
+            <span class="n">getDao</span><span class="o">().</span><span class="na">create</span><span class="o">(</span><span class="n">entite</span><span class="o">);</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="n">DAOException</span> <span class="n">e</span><span class="o">){</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ServiceException</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(),</span> <span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">entite</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">E</span> <span class="nf">update</span><span class="o">(</span><span class="n">E</span> <span class="n">entite</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ServiceException</span><span class="o">{</span>
+        <span class="n">E</span> <span class="n">updatedEntite</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span><span class="o">{</span>
+            <span class="n">updatedEntite</span> <span class="o">=</span> <span class="n">getDao</span><span class="o">().</span><span class="na">update</span><span class="o">(</span><span class="n">entite</span><span class="o">);</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="n">DAOException</span> <span class="n">e</span><span class="o">){</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ServiceException</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(),</span> <span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">updatedEntite</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">ServiceException</span><span class="o">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">findAll</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span><span class="o">{</span>
+            <span class="n">findAll</span> <span class="o">=</span> <span class="n">getDao</span><span class="o">().</span><span class="na">findAll</span><span class="o">();</span>
+            <span class="k">return</span> <span class="n">findAll</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="n">DAOException</span> <span class="n">e</span><span class="o">){</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ServiceException</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(),</span> <span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">E</span> <span class="nf">findById</span><span class="o">(</span><span class="n">K</span> <span class="n">id</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ServiceException</span><span class="o">{</span>
+        <span class="k">try</span><span class="o">{</span>
+            <span class="k">return</span> <span class="nf">getDao</span><span class="o">().</span><span class="na">findById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="n">DAOException</span> <span class="n">e</span><span class="o">){</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ServiceException</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(),</span> <span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="n">K</span> <span class="n">id</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ServiceException</span><span class="o">{</span>
+        <span class="k">try</span><span class="o">{</span>
+            <span class="n">getDao</span><span class="o">().</span><span class="na">remove</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="n">DAOException</span> <span class="n">e</span><span class="o">){</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ServiceException</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(),</span> <span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></div>
+
+
+<h3>Avantages :</h3>
+
+<ul>
+<li>Classe réutilisable.</li>
+<li>Factorise le CRUD dans la couche de service.</li>
+<li>Evite de répéter le même code dans chaque classe.</li>
+</ul>
+
+
+
+<a class="follow-box" href="https://twitter.com/tj_stein">
+  <h3>Suivez <strong>@treeptik-team</strong> sur Twitter</h3>
+  <p class="subtext">Et gagnez un Nexus 10 par tirage au sort </p>
+</a>
+
+  <div class="meta">
+   <div class="published">
+    Publié le : 15-02-2013
+	Auteur : 18-03-2013Salut
+   </div>
+
+   <div class="tweet"><a href="http://twitter.com/?status=Reading 'Le générique DAO oui mais avec un générique service' from http://tjstein.com/2013/02/le-ge%CC%81ne%CC%81rique-dao-oui-mais-avec-un-ge%CC%81ne%CC%81rique-service by @tj_stein" title="Tweet Le générique DAO oui mais avec un générique service">Partagez l'article</a>	</div>
+  </div>
+
+</article>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'treeptikblog'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    // var disqus_identifier = 'unique_dynamic_id_1234';
+    var disqus_url = 'http://blog.treeptik.fr/2013/02/le-ge%CC%81ne%CC%81rique-dao-oui-mais-avec-un-ge%CC%81ne%CC%81rique-service';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+      </div>
+      <div class="span-5 last" id="sidebar">
+        <div class="sidebarbox"> 
+          <h4>Menu</h4> 
+          <ul id="pages">
+	        <li>
+              <a rel="bookmark" title="Home" href="/">Accueil</a>
+            </li>
+            <li>
+              <a rel="bookmark" title="About" href="/about">Team</a>
+            </li>
+            <li>
+              <a rel="bookmark" title="Archives" href="/archives" id="archives">Archives</a> 
+            </li>
+          </ul>
+        </div>
+        <div class="sidebarbox"> 
+          <h4>Flux</h4> 
+          <ul> 
+            <li> 
+              <a title="RSS Feed" href="/feed" class="icon-link" id="feed-link">RSS</a> 
+            </li> 
+          </ul> 
+        </div> 
+        <div class="sidebarbox"> 
+          <h4>Contact</h4> 
+          <ul> 
+            <li> 
+              <a rel="bookmark" title="Email" href="mailto:" class="icon-link" id="gmail-link">Gmail</a> 
+            </li> 
+            <li> 
+              <a rel="bookmark" title="Twitter" href="http://twitter.com/treeptikteam" class="icon-link" id="twitter-link">Twitter</a> 
+            </li> 
+            <li> 
+              <a rel="bookmark" title="GitHub" href="http://github.com/treeptik" class="icon-link" id="github-link">GitHub</a> 
+            </li> 
+          </ul> 
+	</div>
+
+
+     </div>
+
+      <footer class="span-21 last" id="footer">
+			All content copyright &copy; Treeptik. Powered by <a href="http://github.com/mojombo/jekyll" title="The Jekyll (static site generator) code repository" rel="external" target="_blank">Jekyll</a>.      
+			</footer>
+    </div>
+
+    <script type="text/javascript">
+  //<![CDATA[
+  (function() {
+    var links = document.getElementsByTagName('a');
+    var query = '?';
+    for(var i = 0; i < links.length; i++) {
+      if(links[i].href.indexOf('#disqus_thread') >= 0) {
+        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+      }
+    }
+    document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/tjstein/get_num_replies.js' + query + '"></' + 'script>');
+  })();
+  //]]>
+</script>
+
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

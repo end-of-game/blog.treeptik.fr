@@ -1,53 +1,102 @@
 ---
 layout: default
-title: Home
+title: Index blog
 ---
-<div style="font-size: 16px">
-Bienvenue sur ce blog. Son but : vous faire partagez notre expérience. L'idée est de présenter des astuces techniques ou des articles plus poussés sur des technologies Java, Java EE essentiellement ou tout ce qui nous a paru intéressant. En espérant que cela vous soit utile autant qu'à nous.  
-</div>
-<br />
 
-{% include tagCloud.html %}
+<section id="main-content">
 
 {% for post in paginator.posts %}
-  <article class="post">
 
-
-
-    <h2><a href="{{ post.url }}" rel="bookmark permalink" title="Permanent link to this post">{{ post.title }}</a></h2>
-  <div class="meta">
-<div class="published">
-	{% if post.date %} Publié le : {{ post.date | date: "%d-%m-%Y" }} &mdash; Tags: {{ post | tags }}{% endif %}
-   </div>
-</div>
-    {{ post.content | truncatehtml: 100 }}
-
-  <div class="meta">
-   <div class="published">
-      Publié le : {{ post.date | date: "%d-%m-%Y" }}
-      &mdash;
-      Auteur : {{ post.author }}
-      &mdash;
-      <a href="{{ post.url }}#disqus_thread" title="Commentaires">Commentaires</a>
-
-   </div>
+<article>
+<div class="date-sp-wrap">
+  <div class="blog-date-sp">
+    <h3>{{ post.date | date: "%d" }}</h3><span>{{ post.date | date: "%m" }}<br>{{ post.date | date: "%Y" }}</span>
   </div>
-
-
-  </article>
+</div>
+<div class="ten columns omega blog-post">
+  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+  <div class="postmetadata">
+    <h6 class="blog-author"><strong>par</strong> {{ post.author }} </h6>
+    <h6 class="blog-author"><strong>tag</strong> {{ post | tags }} </h6>
+  </div>
+  <!-- Bloc pour mettre une image a coté de l'article 
+  <div class="four columns alpha blog2-img">
+    <img src="images/blog-post-pic1-2.jpg">
+  </div>-->
+  <div class="ten columns omega">
+    <p>{{ post.description }}</p>
+    <a href="{{ post.url }}"  class="readmore">lire la suite</a>
+  </div>
+</div>
+</article>
 {% endfor %}
 
-<div class='paging'>
+<br class="clear">
+<div class="pagination2 pagination2-centered">
+<ul>
 {% if paginator.previous_page %}
   {% if paginator.previous_page == 1 %}
-    <a href='/' class='newer'><h1>Suivant</h1></a>
+<li><a href='/' class='newer'>&laquo;</a></li>
   {% else %}
-    <a href='/page{{paginator.previous_page}}' class='newer'><h1>Suivant</h1></a>
+<a href="{{ paginator.previous_page_path }}" class='newer'>&laquo;</a></li>
   {% endif %}
-{% endif %}
+  {% else %}
+<li class="disabled"><a href='/' class='newer'>&laquo;</a></li>
+  {% endif %}
+
+{% if paginator.page == 1 %}
+        <li class="active"><a href="#">1</a></li>
+      {% else %}
+        <li><a href="/">1</a></li>
+      {% endif %}
+
+
+    {% for count in (2..paginator.total_pages) %}
+        {% if count == paginator.page %}
+<li class="active"><a href="#">{{ count }}</a></li>        
+{% else %}
+ <li><a href="/page{{ count }}">{{ count }}</a></li>
+        {% endif %}
+    {% endfor %}
+
 {% if paginator.next_page %}
-  <a href='/page{{paginator.next_page}}' class='older'><h1>Messages plus anciens</h1></a>
+<li>  <a href="{{ paginator.next_page_path }}" class='older'>&raquo;</a></li>
+  {% else %}
+<li class="disabled"><a href='/' class='older'>&raquo;</a></li>
 {% endif %}
-  
-  <div class='clear'></div>
+
+
+</ul>
 </div>
+<div class="white-space"></div>
+
+
+
+</section><!-- end-main-content -->
+
+<section id="sidebar">
+<div><input name="" type="text" placeholder="Recherchez ..." class="search-side" ></div>
+
+<h4 class="subtitle">Tags</h4>
+<ul>
+  {% for tag in site.tags %}
+    <li class="tag-box"><a href="{{ site.url }}/tags.html#{{ tag | first | cgi_encode }}">{{ tag | first }}</a></li>
+  {% endfor %}
+</ul>
+
+<br class="clear">
+
+<h4 class="subtitle">Archives</h4>
+<div class="listbox1">
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div><!-- end-listbox1 -->
+
+<br class="clear">
+
+</section><!-- end-sidebar-->

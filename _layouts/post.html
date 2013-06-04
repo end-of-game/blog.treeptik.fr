@@ -1,26 +1,75 @@
 ---
 layout: default
 ---
+
+
 <article class="post">
+<div class="date-sp-wrap">
+  <div class="blog-date-sp">
+    <h3>{{ page.date | date: "%d" }}</h3><span>{{ page.date | date: "%m" }}<br>{{ page.date | date: "%Y" }}</span>
+  </div>
+</div>
+<div class="ten columns omega blog-post">
+  <h3><a href="{{ site.url }}{{ page.url }}" rel="bookmark permalink" title="Permanent link to this post">{{ page.title }}</a></h3>
+  <div class="postmetadata">
+    <h6 class="blog-author"><strong>par</strong> {{ page.author }} </h6>
+    <h6 class="blog-author"><strong>tag : </strong> {{ page | tags }} </h6>
+  </div>
+  <!-- Bloc pour mettre une image a coté de l'article 
+  <div class="four columns alpha blog2-img">
+    <img src="images/blog-post-pic1-2.jpg">
+  </div>-->
+  <div class="ten columns omega">
 
-  <h2><a href="{{ site.url }}{{ page.url }}" rel="bookmark permalink" title="Permanent link to this post">{{ page.title }}</a></h2>
+{{ content }}
+  </div>
+</div>
+</article>
+<section id="sidebar">
+<div><input name="" type="text" placeholder="Recherchez ..." class="search-side" ></div>
 
-  {{ content }}
+<h4 class="subtitle">Tags</h4>
+<ul>
+  {% for tag in site.tags %}
+    <li class="tag-box"><a href="{{ site.url }}/tags.html#{{ tag | first | cgi_encode }}">{{ tag | first }}</a></li>
+  {% endfor %}
+</ul>
+
+<br class="clear">
+
+<h4 class="subtitle">Archives</h4>
+<div class="listbox1">
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div><!-- end-listbox1 -->
+
+<br class="clear">
 
 <a class="follow-box" href="https://twitter.com/treeptikteam">
-  <h3>Suivez <strong>@treeptikTeam</strong> sur Twitter</h3>
+  <h4>Suivez <strong>@treeptikTeam</strong> sur Twitter</h4>
 </a>
+
+<br class="clear">
 
   <div class="meta">
    <div class="published">
-    Publié le : {{ page.date | date: "%d-%m-%Y" }}
-	Auteur : {{ page.author }}
-   </div>
+<h6 class="blog-author"><strong>Publié le : </strong> {{ page.date | date: "%d-%m-%Y" }} </h6>
+ <br class="clear">   
+<h6 class="blog-author"><strong>Par :</strong> {{ page.author }} </h6>
 
+   </div>
+<br class="clear">
    <div class="tweet"><a href="http://twitter.com/?status=Reading '{{ page.title }}' from http://blog.treeptik.fr{{ page.url }} by @treeptikteam" title="Tweet {{ page.title }}">Partagez l'article</a>	</div>
   </div>
 
-</article>
+</section><!-- end-sidebar-->
+
+
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
