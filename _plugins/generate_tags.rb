@@ -160,19 +160,20 @@ module Jekyll
 
 def tag_cloud(tags)
 
-      maxFontSize = 300
-      minFontSize = 80
+      #maxFontSize = 300
+      #minFontSize = 80
       
       html = String.new	
       
       tags = tags.sort {|a,b| a[0].downcase <=> b[0].downcase }
-      biggest_item = tags.max { |x,y| x[1].size <=> y[1].size }
-      smallest_item = tags.min { |x,y| x[1].size <=> y[1].size }
+      #biggest_item = tags.max { |x,y| x[1].size <=> y[1].size }
+      #smallest_item = tags.min { |x,y| x[1].size <=> y[1].size }
       
       tags.each do | key, val |
-        weight = (Math.log(val.length)-Math.log(smallest_item[1].size))/(Math.log(biggest_item[1].size)-Math.log(smallest_item[1].size));
-        font_size = minFontSize + ((maxFontSize-minFontSize) * weight).round;
-        html << '<a href="/tags/' + Site.slugify(key) + '/" title="Pages tagged ' + key + '" style="font-size: ' + font_size.to_s + '%" rel=\"tag\">' + key + '</a> '
+      #weight = (Math.log(val.length)-Math.log(smallest_item[1].size))/(Math.log(biggest_item[1].size)-Math.log(smallest_item[1].size));
+        #font_size = minFontSize + ((maxFontSize-minFontSize) * weight).round;
+        #html << '<a href="/tags/' + Site.slugify(key) + '/" title="Pages tagged ' + key + '" style="font-size: ' + font_size.to_s + '%" rel=\"tag\">' + key + '</a> '
+        html << '<a href="/tags/' + Site.slugify(key) + '/" title="Pages tagged ' + key  + '%" rel=\"tag\">' + key + '</a> '
       end
       
       html
@@ -186,3 +187,4 @@ def tag_cloud(tags)
   end
   
 end
+
