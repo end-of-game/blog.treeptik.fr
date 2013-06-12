@@ -4,10 +4,8 @@ author: "treeptik-team"
 email: "contact@treeptik.fr"
 description: "Blog des ingénieurs de treeptik"
 
-auto: false
 paginate: 5
-paginate_files:
- - index.html
+
 
 permalink: /:year/:month/:title
 
