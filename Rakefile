@@ -1,126 +1,101 @@
-# adapted from 
-# https://github.com/mmonteleone/michaelmonteleone.net/blob/master/Rakefile
-# and
-# https://github.com/jbarratt/serialized.net/blob/master/Rakefile
+require 'date'
 
-require 'rake/clean'
+desc "Builds everything"
+task :default => [:clean, :sass, :jekyll]
 
-desc 'Build site with Jekyll'
-task :build => [:clean] do
-  jekyll
+desc "Builds Jekyll in a clean environment"
+task :'jekyll-clean' => [:clean, :jekyll]
+
+desc "Builds all SASS scripts"
+task :sass do
+  sh 'sass', '-C', '-f', '-t', 'compact', '--update', '_sass:css'
 end
 
-desc 'Notify Google of the new sitemap'
-task :sitemap do
-  begin
-    require 'net/http'
-    require 'uri'
-    puts '* Pinging Google about the sitemap'
-    Net::HTTP.get('www.google.com', '/webmasters/tools/ping?sitemap=' + URI.escape('http://blog.treeptik.fr/sitemap.xml'))
-  rescue LoadError
-    puts '! Could not ping Google about our sitemap, because Net::HTTP or URI could not be found.'
-  end
-end
- 
-desc 'Start server with --auto'
-task :server => [:clean]  do
-  jekyll('--server --auto')
+desc "Compiles site with Jekyll for testing"
+task :jekyll do
+  sh 'jekyll', '--pygments', '--safe'
 end
 
-#desc 'Deploy to production'
-#task :deploy do
-#  puts '* Publishing files to production server'
-#  sh "rsync -rtzh --delete _site/ --rsh='ssh -p43102' deploy@tjstein.com:/home/deploy/tjstein.com/public"
-#end
-
-##
-# Package Requirement:
-# jpegoptim
-# Install OSX:
-# brew install jpegoptim
-# Install Ubuntu:
-# [apt-get | aptitude] install jpegoptim
-#
-desc 'Optimize JPG images in output/images directory using jpegoptim'
-task :jpg do
-  puts `find _site/images -name '*.jpg' -exec jpegoptim {} \\;`
+desc "Cleans out the old site"
+task :clean do
+  sh 'rm', '-rf', '_site'
 end
 
-##
-# Package Requirement:
-# optipng
-# Install OSX:
-# brew install optipng
-# Install Ubuntu:
-# [apt-get | aptitude] install optipng
-#
-desc 'Optimize PNG images in output/images directory using optipng'
-task :png do
-  puts `find _site/images -name '*.png' -exec optipng {} \\;`
-end
-
-desc 'Minify CSS & HTML'
-task :minify do
-  puts '* Minifying CSS and HTML'
-  sh 'java -jar ~/.java/yuicompressor-2.4.2.jar --type css css/print.css -o _site/css/print.css'
-  sh 'java -jar ~/.java/yuicompressor-2.4.2.jar --type css css/screen.css -o _site/css/screen.css'
-  sh 'java -jar ~/.java/yuicompressor-2.4.2.jar --type css css/custom.css -o _site/css/custom.css'
-  sh 'java -jar ~/.java/htmlcompressor-0.9.8.jar _site/index.html -o _site/index.html'
-  sh 'java -jar ~/.java/htmlcompressor-0.9.8.jar --type=xml _site/sitemap.xml -o _site/sitemap.xml'
-end
-
-#desc 'Backup to NAS + Amazon S3'
-#task :backup do
-#  puts '* Backing up to NAS + Amazon S3'
-#  puts `./backup.sh`
-#end
-
-desc 'Push source code to Github'
-task :push do
-  puts '* Pushing to Github'
-  puts `git push origin master`
-end
-
-desc 'List all draft posts'
-task :drafts do
-  puts `find ./_posts -type f -exec grep -H 'published: false' {} \\;`
-end
-
-desc 'Begin a new post'
-task :post do   
-  ROOT_DIR = File.dirname(__FILE__)
-
+desc "Create a new post usage rake post 'Title' 'tags,super tags' 'author'"
+task :post do 
   title = ARGV[1]
-  tags = ARGV[2 ]
+  tags = ARGV[2]
+  author = ARGV[3]
 
-  unless title
-    puts %{Usage: rake post "The Post Title"}
-    exit(-1)
+  title || begin
+     puts "Usage: You must specify a title: rake post'[Hello world!]'"
+     return 1
   end
 
-  datetime = Time.now.strftime('%Y-%m-%d')  # 30 minutes from now.
-  slug = title.strip.downcase.gsub(/ /, '-')
+  # Sanitize our title and generate other data
+  safe_title = title.downcase.gsub(/[^a-z0-9]+/, '-').squeeze('-').gsub(/\A-+|-+\z/, '')
+  now = DateTime.now
+  date = now.strftime '%Y-%m-%d'
+  file = "_posts/#{date}-#{safe_title}.markdown"
 
-  # E.g. 2006-07-16_11-41-batch-open-urls-from-clipboard.markdown
-  path = "#{ROOT_DIR}/_posts/#{datetime}-#{slug}.markdown"
+  # Generate tags 
+  tagsStr = ""
+  tags.split(',').each do |tag|
+    tagsStr << "- #{tag}\r\n"  
+  end 
 
-  header = <<-END
+  # Actually generate the new branch and file
+  git "checkout", "-b", "drafts/#{safe_title}", "master"
+  sh 'mkdir', '_posts' if !File.exists? '_posts'
+  sh "touch", file
+  git "add", "-N", file
+  puts "Writing headers..."
+  File.open(file, 'w') do |draft|
+    draft.puts <<TEMPLATE
 ---
-layout: post
 title: #{title}
-author:
-excerpt: 
-comments: true
+date: #{now.strftime '%Y-%m-%d %H:%I:%S %z'}
+layout: post
+author: #{author}
+tags:
+#{tagsStr}
 ---
 
-END
+TEMPLATE
+  end
 
-  File.open(path, 'w') {|f| f << header }
-  system("mate", path)    
-end  
+  # Open the file for editing. At this point, we are done so exec out so
+  # rake can't whine too much if we screw up our editor
+  editor = ENV['EDITOR'] || 'vi'
+  exec editor, file
+end
 
-task :default => :server
+desc "Publishes the currently checked out draft branch to master"
+task :publish do
+  branch = git_branch
+  if branch.match(/^drafts\//).nil?
+    puts "You must be on at the head of a draft branch."
+    return 1
+  end
+  if !`git diff --cached --name-only`.strip.empty?
+    puts "You must be on a clean checkout, or at least have an empty index."
+    return 1
+  end
+  title = branch.gsub(/^drafts\//, '')
+  git 'checkout', 'master'
+  git 'merge', '--squash', branch
+  git 'commit', '-m', "Publishing '#{title}'"
+  git 'branch', '-D', branch
+end
 
-def jekyll(opts = '')
-  sh 'time jekyll ' + opts
+def git(*args)
+  sh 'git', *args
+end
+
+def git_branch
+  branch = `git branch -a 2> /dev/null | grep "^* " | awk '{print $2}'`.strip
+  if branch == '(no branch)' || !branch
+    branch = nil
+  end
+  branch
 end
