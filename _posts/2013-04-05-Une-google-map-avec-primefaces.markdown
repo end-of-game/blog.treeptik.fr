@@ -10,7 +10,7 @@ tags:
 published: true
 excerpt: 
 comments: true
-description: Primefaces est un DTD (Document Type Definition) qui fournit une suite de composants JSF. Cet surcouche permet d'avoir accès à de nombreux composants supplémentaires, enrichissant ainsi le panel de possiblité déjà fournit par JSF seul. Un de ces composants est le gmap et permet d'incruster une carte Google Map. Cet article propose une implémentation simple de ce composant ainsi que son implémentation lors de l'utilisation d'un template puis au sein d'une pop-up.
+description: <strong>Primefaces</strong> est un DTD (Document Type Definition) qui fournit une suite de composants JSF. Cet surcouche permet d'avoir accès à de nombreux composants supplémentaires, enrichissant ainsi le panel de possiblité déjà fournit par JSF seul. Un de ces composants est le <strong>gmap</strong> et permet d'incruster une carte Google Map. Cet article propose une implémentation simple de ce composant ainsi que son implémentation lors de l'utilisation d'un template puis au sein d'une pop-up.
 ---
 
 **Primefaces** est un DTD (Document Type Definition) qui fournit une suite de composants JSF. Cet surcouche permet d'avoir accès à de nombreux composants supplémentaires, enrichissant ainsi le panel de possiblité déjà fournit par JSF seul. Un de ces composants est le **gmap** et permet d'incruster une carte Google Map. Cet article propose une implémentation simple de ce composant ainsi que son implémentation lors de l'utilisation d'un **template** puis au sein d'une **pop-up**.  

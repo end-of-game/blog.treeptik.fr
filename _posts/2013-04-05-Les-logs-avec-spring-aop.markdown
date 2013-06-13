@@ -9,7 +9,7 @@ tags:
 published: true
 excerpt: 
 comments: true
-description: Cet article propose un exemple d'utilisation de Spring AOP pour enregistrer l'évènement correspondant à la sauvegarde d'une entité en base de donnée en Spring IOC et JPA (avec une base MySQL). L'exemple propose de créer un objet Client et de l'enregistrer en base de données. Nous utiliserons un tissage dynamique, c'est à dire que l'aspect sera mis implémenter lors de l'exécution du logiciel.
+description: Cet article propose un exemple d'utilisation de <strong>Spring AOP</strong> pour enregistrer l'évènement correspondant à la sauvegarde d'une entité en base de donnée en Spring IOC et JPA (avec une base MySQL). L'exemple propose de créer un objet Client et de l'enregistrer en base de données. Nous utiliserons un tissage dynamique, c'est à dire que l'aspect sera mis implémenter lors de l'exécution du logiciel.
 ---
   
 

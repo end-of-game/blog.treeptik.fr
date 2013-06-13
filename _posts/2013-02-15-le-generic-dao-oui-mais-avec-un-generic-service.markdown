@@ -8,7 +8,7 @@ tags:
 - java
 - developpement
 comments: true
-description: Très souvent on trouve sur les projets l'implémentation du design pattern GenericDAO qui permet de ne pas répéter le code des méthodes CRUD pour l'ensemble des entités. Très bien mais dans une architecture en couche de service (qu'on retrouve encore très souvent dans les projets) ce pattern doit être couplé avec un GenerciService si on ne veut pas répéter le *"glue code"* si problématique dans les services.
+description: Très souvent on trouve sur les projets l'implémentation du <strong>design pattern GenericDAO</strong> qui permet de ne pas répéter le code des méthodes CRUD pour l'ensemble des entités. Très bien mais dans une architecture en couche de service (qu'on retrouve encore très souvent dans les projets) ce pattern doit être couplé avec un <strong>GenerciService</strong> si on ne veut pas répéter le <em>"glue code"</em> si problématique dans les services.
 ---
 
 Très souvent on trouve sur les projets l'implémentation du **design pattern GenericDAO** qui permet de ne pas répéter le code des méthodes CRUD pour l'ensemble des entités. Très bien mais dans une architecture en couche de service (qu'on retrouve encore très souvent dans les projets) ce pattern doit être couplé avec un **GenerciService** si on ne veut pas répéter le *"glue code"* si problématique dans les services.  

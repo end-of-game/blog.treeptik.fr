@@ -9,17 +9,16 @@ tags:
 published: true
 excerpt: 
 comments: true
-description: Cet article présente un aperçu de l'outil de génération de pages utilisé pour créer ce blog, jekyll. Il introduira les différents composants utilisés pour pouvoir rapidement comprendre le fonctionnement de jekyll. Quelques outils externes et le langage de balisage markdown seront évoqués.
+description: Cet article présente un aperçu de l'outil de génération de pages utilisé pour créer ce blog, <strong>jekyll</strong>. Il introduira les différents composants utilisés pour pouvoir rapidement comprendre le fonctionnement de jekyll. Quelques outils externes et le langage de balisage <strong>markdown</strong> seront évoqués.
 ---
 
-###Préambule
 
 Cet article présente un aperçu de l'outil de génération de pages utilisé pour créer ce blog : **jekyll**.
 Il introduira les différents composants utilisés pour pouvoir rapidement comprendre le fonctionnement de jekyll.
 Quelques outils externes et le langage de balisage **markdown** seront évoqués.
 L'installation des outils nécessaires et le déploiement en production ne sont pas abordés ici, beaucoup de tutoriels expliquent déjà bien ses deux parties.
 
-## Pourquoi utiliser Jekyll?
+### Pourquoi utiliser Jekyll?
 
 
 + Idéal pour un site statique, un blog, un site sans base de données
@@ -28,7 +27,7 @@ L'installation des outils nécessaires et le déploiement en production ne sont 
 + une mise en page simple
 + Une mise en forme simple: markdow.
 
-## Les chefs d'orchestre :
+### Les chefs d'orchestre :
 
 #### - config.yml :
 
@@ -66,7 +65,7 @@ production_url : ...
 + définit les commandes
 + automatise les tâches
 
-## Mise en page - le dossier_layouts
+### Mise en page - le dossier_layouts
 
 Ce dossier contient les gabarit (*templates*) de base de votre site. Grâce à un en-tête que vous allez rajouter à chacun de vos fichiers (*YAML front matter*). Vous allez définir quel gabarit utiliser pour ce fichier. Cela va donc vous permettre d’utiliser des structures déjà prédéfinies, pré-remplies pour différentes pages. 
 
@@ -76,7 +75,7 @@ c'est lui qui va structurer l'ensemble des pages de votre site
 + page.html : page “isolée”
 + post.html : structure les articles (posts)
 
-##Outils
+###Outils
 
 #### - En-tête (YAML front matter)
 + Décrit les paramètres du fichier comme le layout utilisé, le titre, l'auteur...
@@ -92,6 +91,32 @@ author: auteur
 comments: true
 ---
 {% endhighlight %}
+
+
+#### - Index.html
++ Page d'accueil de votre site
++ Présente les contenus les plus récents.
++ La pagination (la variable paginator) est appliquable sur cette page
+
+#### - Le dossier _post
+
++ dossier où sont localisées les articles.
++ Pour générer un fichier dans ce dossier, voici la commande :
+`rake post title="Mon super article"`
+
+
+### - Commandes principales
++ Créer un fichier dans le dossier _post :  
+	`rake post title="titre de votre article"`
+
++ Génère le site : `jekyll`  
+L'analyse du dossier racine comportant tous les sous dossiers et fichiers est effectuée, le site est généré dans le dossier **_site**
+
+
++ Déploie en local le site généré : `jekyll --server`  
+Le site est accessible à l'adresse `localhost:4000`.
+
++ Pour demander un peu d'aide : `jekyll --help`
 
 ### - DISQUS
 
@@ -138,35 +163,13 @@ qui renvoie à un fichier du dossier (qui porte bien son nom) **_includes**.
 </script>
 {% endhighlight %}
 
-### - Index.html
-+ Page d'accueil de votre site
-+ Présente les contenus les plus récents.
-
-###Le dossier **_post**
-
-+ dossier où sont localisées les articles.
-+ Pour générer un fichier dans ce dossier, voici la commande :
-`rake post title="Mon super article"`
 
 
-### Commandes principales
-+ Créer un fichier dans le dossier _post :  
-	`rake post title="titre de votre article"`
-
-+ Génère le site : `jekyll`  
-L'analyse du dossier racine comportant tous les sous dossiers et fichiers est effectuée, le site est généré dans le dossier **_site**
-
-
-+ Déploie en local le site généré : `jekyll --server`  
-Le site est accessible à l'adresse `localhost:4000`.
-
-+ Pour demander un peu d'aide : `jekyll --help`
-
-## Markdown :
+### - Markdown :
 Pour écrire les articles de ce blog, nous utilisons le langage **markdown** pour la simplicité de sa syntaxe.
 Voici quelques exemples de syntaxe de mise en forme : 
 
-### - Niveaux de titre :
+#### - Niveaux de titre :
 \## Titre niveau 2 =
 ## Titre niveau 2
 \### Titre niveau 3 =
@@ -174,7 +177,7 @@ Voici quelques exemples de syntaxe de mise en forme :
 
 
 ### - Une liste :
-\+ pommes  
+\+ (ou - ou *) pommes  
 \+ poires  
 \+ bananes  
 donne :  
@@ -184,9 +187,9 @@ donne :
 + bananes
 
 
-### - Insérer un bloc de code :
+#### - Insérer un bloc de code :
 
-**{ % highlight java % }** (sans espace entre { et %).  
+**{ % highlight java%}** (sans espace entre { et %).  
 Mon bout de code en java   
 **{ % endhighlight % }** (sans espace entre { et %)
 
@@ -206,4 +209,10 @@ public abstract class GenericService <T extends GenericDAO<E, K>, E extends Gene
 	}
 {% endhighlight %}
 
+#### - Insérer une citation :
+
+pour insérer une citation il suffit de commencer la ligne par **>**.  
+\>une citation  
+donne:
+>une citation 
 
