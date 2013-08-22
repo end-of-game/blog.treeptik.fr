@@ -50,7 +50,7 @@ La première étape est de lancer un container sur un modèle existant, une imag
 {% endhighlight %}
 </br>
 <u>Explication :</u>  
-Cette commande lance un container qui est une réplique de l'image ubuntu. L'option -t, alloue un pseudo-tty et -i laisse le stdin ouvert. le container est lancé ave la commande bin/bash.
+Cette commande lance un container qui est une réplique de l'image ubuntu. L'option -t, alloue un pseudo-tty et -i laisse le stdin ouvert. le container est lancé avec la commande bin/bash.
 
 Un système indépendant de fichier sous ubuntu est créé avec un shell pour executer n'importe quelle commande. Ce container peut ainsi être modifier en installant ce que l'on veut.
 
@@ -115,7 +115,7 @@ ou encore
 </br>
 ####Dockerfile Builder
 </br>
-Docker peut agir comme un constructur et lire les instructions d'un fichier texte nommé **dockerfile** pour automatiser les étapes que l'on doit faire manuellement pour créer une image "évoluée" à partir d'une image de base.
+Docker peut agir comme un constructeur et lire les instructions d'un fichier texte nommé **dockerfile** pour automatiser les étapes que l'on doit faire manuellement pour créer une image "évoluée" à partir d'une image de base.
 
 Reprenons l'exemple de la création d'une image comprenant un tomcat, voici les différentes instructions du dockerfile correspondant:
 
