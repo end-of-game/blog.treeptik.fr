@@ -195,3 +195,8 @@ a#skype-link {
 .newer a {
     color: #597A9B;
 }
+
+.follow-box {
+	border: none;
+	background: none;
+}
