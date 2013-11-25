@@ -7,7 +7,6 @@ description: En 2012, le marché du <strong>cloud</strong> computing en France r
 tags:
 - cloud
 - Paas
-- marche
 
 ---
 
