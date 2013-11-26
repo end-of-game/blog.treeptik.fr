@@ -7,6 +7,7 @@ description: En 2012, le marché du <strong>cloud</strong> computing en France r
 tags:
 - cloud
 - Paas
+- marche
 
 ---
 
@@ -25,4 +26,4 @@ Cette même société d’études table également sur un intérêt croissant de
 
 Le potentiel de croissance du Paas est également très important au sein des PME françaises. En effet, les services de type Paas représentent un atout majeur pour les entreprises puisqu’ils fournissent aux développeurs des outils leur permettant le déploiement simple et rapide de leurs applications, le tout avec une facture unique. Les services de type Paas fournissent une véritable plate-forme de développement déjà configurée, équipée d’un ou plusieurs langages de programmation et d’outils de développement (base de données, serveur d’application, serveur d’intégration…). Cela représente un gain de temps considérable pour les entreprises puisque les développeurs sont opérationnels très rapidement et n’ont pas besoin de se soucier des problématiques de configuration et de maintenance. Développer une application de manière “classique” a toujours été un processus complexe, cher et lent alors que démarrer un projet web dans le cloud de type Paas ne prend que quelques minutes. 
 
-Après une étude de faisabilité, **[Treeptik](http://treeptik.fr/)** a décidé de se lancer dans le marché du Paas en mettant au point un outil qui simplifie considérablement la génération d’applications **Java/JEE**: c’est le projet CloudUnit. **[CloudUnit](http://cloudunit.fr)** sera une solution de type **Paas** spécialisée dans le langage Java. La version bêta de **CloudUnit** sera accessible gratuitement pour un nombre déterminés de développeurs qui auront été sélectionnés par notre équipe. L’objectif est  de développer une version améliorée 1.0 durant le deuxième trimestre de l’année 2014. Rapidement l’application **CloudUnit** va devenir un outil de référence en terme de développement **Java/JEE**.
+Après une étude de faisabilité, **[Treeptik](http://treeptik.fr/)** a décidé de se lancer dans le marché du Paas en mettant au point un outil qui simplifie considérablement la génération d’applications **Java/JEE**: c’est le projet CloudUnit. CloudUnit sera une [solution de type Paas spécialisée dans le langage Java](http://cloudunit.fr). La version bêta de **CloudUnit** sera accessible gratuitement pour un nombre déterminés de développeurs qui auront été sélectionnés par notre équipe. L’objectif est  de développer une version améliorée 1.0 durant le deuxième trimestre de l’année 2014. Rapidement l’application **CloudUnit** va devenir un outil de référence en terme de développement **Java/JEE**.
