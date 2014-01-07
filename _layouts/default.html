@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="{{ site.base}}/css/style.css" type="text/css"  media="all"> 
   <link type="text/css" rel="stylesheet" media="screen, projection" href="{{ site.base}}/css/code.css" />
   <link rel="stylesheet" href="{{ site.base}}/fancybox/fancybox.css" type="text/css">
+  <link rel="stylesheet" href="{{ site.url}}/css/syntax.css" type="text/css"  media="all"> 
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900|Oswald:300,400' rel='stylesheet' type='text/css'>
 
   <!-- JS
@@ -29,6 +30,7 @@
     <!-- HTML5 Shiv events (end)-->
     <script type="text/javascript" src="{{ site.base}}/js/nav-resp.js"></script>
 <script type="text/javascript" src="{{ site.base}}/js/colorize.js"></script>
+<script type="text/javascript" src="http://blog.treeptik.fr/js/twitterfeed.js"></script>
 
 
 
@@ -63,6 +65,7 @@
       <ul>
         <li><a href="http://www.treeptik.fr/developpement-application-entreprise.html">Développement d'applications</a></li>
         <li><a href="http://www.treeptik.fr/cloudcomputing-devops.html">Le cloud computing</a></li>
+        <li><a href="http://www.treeptik.fr/cloudunit-paas-java.html">CloudUnit</a></li>
         <li><a href="http://www.treeptik.fr/expertise-java.html">Expertise et assistance</a></li>
         <li><a href="http://www.treeptik.fr/creation-site-internet.html">Création de Site Web</a></li>
       </ul>
@@ -100,13 +103,10 @@
       <div class="container footer-in">
 
 
-        <div class="four columns">
+        <div class="nine columns">
           <h4 class="subtitle">Restez connecté</h4>
           <br />
-          <p class="twitt-txt">
-            @<a href="https://twitter.com/treeptikTeam">treeptikTeam</a> <span
-              id="twitter"></span>
-          </p>
+          <div id="twitter-feed"></div>
         </div>
         <!-- end-follow2 -->
 
@@ -128,6 +128,11 @@
             <img src="{{ site.base }}/images/social_mail.png" class="alignleft" alt="">&nbsp;<strong>Email:</strong>
             <br />contact@treeptik.fr<br />
           </p>
+          <h4 class="subtitle">Avec le soutien de</h4>
+            <ul class="partners">
+              <li><img src="images/logo_region_paca.jpg" alt="Logo de la région PACA"></li>
+              <li><img src="images/logo_oseo.jpg" alt="Logo d'Oséo"></li>
+            </ul>
         </div>
         <!-- end-contact2 -->
       </div>
