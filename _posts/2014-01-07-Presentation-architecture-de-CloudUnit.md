@@ -13,7 +13,7 @@ description: CloudUnit est une solution PAAS qui vous permet de déployer et d'a
 
 CloudUnit est une solution PAAS qui vous permet de déployer et d'administrer des applications Java et Java EE dans le cloud. C’est une solution créée par des développeurs pour simplifier la vie des développeurs. Avec CloudUnit vous pouvez créer vos serveurs d’application, vos bases de données et déployer vos applications d’entreprise en quelques minutes. La plate-forme se compose de trois unités qui collaborent ensemble. Le Manager, les serveurs et les modules. Chaque unité a une responsabilité bien précise.
 
-## Présentation 
+### Présentation 
 La plate-forme se compose de trois unités qui collaborent ensemble. Le Manager, les serveurs et les modules. Chaque unité a une responsabilité bien précise : 
 
 * **Le Manager** : C’est l’unité qui est responsable de toute les actions d’administration. C’est lui qui crée les autres unités, qui gère les proxy et les DNS. Le manager s’utilise soit au travers de l’application web, soit au travers de l’application en ligne de commande. Les deux outils utilisent l’API REST exposée par le manager. 
@@ -24,7 +24,7 @@ La plate-forme se compose de trois unités qui collaborent ensemble. Le Manager,
 
 
 
-## Architecture simplifiée 
+### Architecture simplifiée 
 
 Le schéma ci-dessous présente un aperçu de l’architecture de CloudUnit. 
 Le manager reçoit toutes les commandes au travers de l’API REST, il pilote ensuite les serveurs, les modules et le proxy. Les utilisateurs web se connectent ensuite aux applications déployées sur CloudUnit au travers du HA proxy. 
@@ -32,9 +32,9 @@ Le manager reçoit toutes les commandes au travers de l’API REST, il pilote en
 ![architecture-cloudunit](https://docs.google.com/drawings/d/1MeJisVAuf0m-iCnSoXSLSxtPXONWO5G-SHBHsvPQK-o/pub?w=946&h=428)
 
 
-## Cas d’utilisation détaillé 
+### Cas d’utilisation détaillé 
 
-### Création et déploiement d’une application 
+#### Création et déploiement d’une application 
 
 Ce diagramme décrit comment créer et déployer simplement une application Java EE dans CloudUnit. 
 
@@ -43,7 +43,7 @@ Ce diagramme décrit comment créer et déployer simplement une application Java
 
 
 
-Création de l’application 
+#### Création de l’application 
 
 1. 1- Le développeur demande la création d’une application en précisant le nom de l’application et le type de serveur d’application. Il peut utiliser soit l’application Web, soit l’application en ligne de commande pour passer ses ordres au manager.
 2. 2- Le manager réserve l’espace nécessaire et installe le serveur d’application accompagné d’un repository Git. 
@@ -51,7 +51,7 @@ Création de l’application
 4. 4- Le développeur demande ensuite l’ajout d’un module (Ex : Mysql)
 5. 5- Le manager réserve l’espace nécessaire et installe le module  
 
-Déploiement de l’application 
+#### Déploiement de l’application 
 
 6. 6- Le développeur demande le déploiement de l’application au format WAR ou EAR en utilisant l’interface web de CloudUnit. 
 7. 7- Le manager déploie l’archive sur le serveur d’application
@@ -59,8 +59,8 @@ Déploiement de l’application
 9. 7'- CloudUnit compile le code source, package l’application et la déploie sur le serveur  
 
 
-### Déploiement d’une ancienne version de l’application 
-A chaque déploiement de l’application avec un `git push`CloudUnit crée un **tag** de la version déployée. Il est ensuite possible de demander au manager de déployer automatiquement un ancien tag. 
+#### Déploiement d’une ancienne version de l’application 
+A chaque déploiement de l’application avec un `git push` CloudUnit crée un **tag** de la version déployée. Il est ensuite possible de demander au manager de déployer automatiquement un ancien tag. 
 
 ![deploiement-tag](https://docs.google.com/drawings/d/1MhQTSiLWzo2XhNk1LMEKzXvO9Rh-t5VFXLcsRUlRTa0/pub?w=946&h=428)
 
