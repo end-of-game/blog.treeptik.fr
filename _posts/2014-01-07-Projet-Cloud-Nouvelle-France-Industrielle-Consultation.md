@@ -19,7 +19,9 @@ De l'avis général, le Cloud Computing est vu comme un élément structuran
 La notion de Cloud intègre trois grands domaines qui sont très différents et qui ne peuvent pas être considérés de la même manière :
 
 * Le SaaS est un mode de commercialisation qui existe depuis plus de 10 ans et vers lequel se tournent de plus en plus d'éditeurs de logiciels. Le marché du SaaS en France et en Europe est déjà très mature.
+
 * Le Paas est le volet du Cloud qui peut être encore aujourd'hui considéré comme inexploité. Il n'existe à ce jour pas de réel opérateurs PaaS en France mais des initiatives naissent au sein de jeunes entreprises innovantes telles que Clever Cloud (Nantes) et Treeptik (Aix en Provence).
+
 * Le IaaS est une évolution de l’hébergement traditionnel. Ce modèle est déjà très exploité aux US aujourd’hui. En France, les grands opérateurs de l’hébergement traditionnel ainsi que certaines start- up travaillent à l’élaboration d’une véritable offre IaaS.
 
 Les enjeux liés au développement du Cloud Computing pour les différents acteurs :
