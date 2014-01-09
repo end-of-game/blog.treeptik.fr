@@ -18,7 +18,7 @@ La plate-forme se compose de trois unités qui collaborent ensemble. Le Manager,
 
 * **Le Manager** : C’est l’unité qui est responsable de toute les actions d’administration. C’est lui qui crée les autres unités, qui gère les proxy et les DNS. Le manager s’utilise soit au travers de l’application web, soit au travers de l’application en ligne de commande. Les deux outils utilisent l’API REST exposée par le manager. 
 
-* **Le Serveur** : C’est le serveur d’application qui fait fonctionner l’application Java JEE. CloudUnit en supporte plusieurs versions (Tomvat 5, 6, 7, Jboss 6, 7 et d’autre à venir ) mais un seul type de serveur n’est possible pour une application donnée. Le type du serveur est défini au moment de la création de l’application.
+* **Le Serveur** : C’est le serveur d’application qui fait fonctionner l’application Java JEE. CloudUnit en supporte plusieurs versions (Tomcat 5, 6, 7, Jboss 6, 7 et d’autre à venir ) mais qu'un seul type de serveur n’est possible pour une application donnée. Le type du serveur est défini au moment de la création de l’application.
 
 * **Les Modules** : C’est tout ce qui sera utilisé en backend par les applications déployées dans CloudUnit. Les bases de données (MySql, MariaDB, PostgreSQL), des systèmes de cache (MemCached), des systèmes clé / valeur comme Redis et bien d’autre à venir. Une application peut avoir plusieurs modules en même temps comme deux bases de données et un système de cache par exemple.
 
