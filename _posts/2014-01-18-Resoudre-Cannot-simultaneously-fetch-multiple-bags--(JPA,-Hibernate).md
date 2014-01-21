@@ -1,11 +1,10 @@
 ---
 layout: post
-title: Résolution du bug “cannot simultaneously fetch multiple bags” avec JPA et Hibernate
+title: Correction de “cannot simultaneously fetch multiple bags”
 author: Guillaume Martial
 tags:
 - JPA
 - Hibernate
-- Erreur
 published: true
 excerpt: 
 comments: true
