@@ -34,6 +34,8 @@ Ensuite l'intégration continue est assurée par Jenkins permettant l'automatisa
 - [Maven](http://maven.apache.org/what-is-maven.html) pour les builds, la gestion des dépendances et l'exécution des tests.
 - [Git](http://git-scm.com/) pour la gestion des versions du code source codé par les différents développeurs en local et « poussé » sur un dépôt distant sur Gitlab. 
 Un worflow classique a été mis en place avec une branche dev active, une prod avec une version stable validée par le responsable projet et la création de branche pour les mises en place de fonctionnalité plus longues.
+Pour le côté matériel, tout est hébergé sur des serveurs Linux chez [Agarik](http://www.agarik.com/), une filiale de [Bull](http://www.bull.fr/). Un choix français pour éviter tout problème législatif et rester avec des acteurs locaux.
+
 
 ###API mise en place : 
 L'application expose au final une API REST qui permet de créer des serveurs, déployer des applications et piloter tout CloudUnit. L'application répond en [JSON](http://www.json.org/) le langage d'échange de données génériques. Le choix du couple REST et JSON permet de développer facilement des clients pour de nombreux supports et langages. 

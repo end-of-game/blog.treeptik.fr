@@ -17,6 +17,7 @@ Icon
 ### Jekyll ###
 _site/
 /php/twitteroauth/getTweets.php
+.idea/
 
 ### vim ###
 .*.s[a-w][a-z]
