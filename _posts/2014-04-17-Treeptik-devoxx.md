@@ -15,8 +15,8 @@ C'est en tant passionnés que les développeurs de Treeptik se sont rendus à De
 Cet outil est au coeur du développement de CloudUnit, notre [plateforme Cloud PaaS ](http://cloudunit.fr).
 Voici les photos:
 
-![F.Amico et N.Muller animent une session à Devoxx France 2014](/images/devoxx_2014_1.jpeg)
-![F.Amico et N.Muller animent une session à Devoxx France 2014](/images/devoxx_2014_2.jpeg)
+{% include image.html url="/images/devoxx_2014_1" description="F.Amico (à droite) et N.Muller animent une session à Devoxx France 2014." %}
+{% include image.html url="/images/devoxx_2014_2" description="F.Amico et N.Muller présentent comment créer un PaaS Java en 30 minutes avec Docker." %}
 
 
 

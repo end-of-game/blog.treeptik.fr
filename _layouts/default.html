@@ -26,7 +26,6 @@
 
     <!-- JS
     ================================================== -->
-    <script type="text/javascript" src="{{ site.base}}/js/jquery.min.js"></script>
     <!--[if lt IE 9]>
     <script src="js/modernizr.custom.11889.js" type="text/javascript"></script>
     <![endif]-->
@@ -59,44 +58,9 @@
                                                                                 src="{{ site.base }}/images/logo.png"
                                                                                 alt="logo"></a><br>
             <h4 class="slogan1"></h4></div>
-        <nav id="nav-wrap" class="twelve columns">
-            <ul id="nav">
-                <li><a data-description="Bienvenue" href="http://www.treeptik.fr/index.html">Accueil</a>
-                    <ul>
-                        <li><a href="http://www.treeptik.fr/presentation-treeptik.html">Présentation et historique</a>
-                        </li>
-                        <li><a href="http://www.treeptik.fr/treeptik-une-entreprise-innovante.html">Une entreprise
-                            innovante</a></li>
-                        <li><a href="http://www.treeptik.fr/treeptik-en-chiffre.html">Quelques chiffres</a></li>
-                        <li><a href="http://www.treeptik.fr/treeptik-actualites.html">Actualités</a></li>
-                    </ul>
-                </li>
-                <li><a data-description="Notre offre"
-                       href="http://www.treeptik.fr/developpement-application-entreprise.html">L'offre de service</a>
-                    <ul>
-                        <li><a href="http://www.treeptik.fr/developpement-application-entreprise.html">Développement
-                            d'applications</a></li>
-                        <li><a href="http://www.treeptik.fr/cloudcomputing-devops.html">Le cloud computing</a></li>
-                        <li><a href="http://www.treeptik.fr/cloudunit-paas-java.html">CloudUnit</a></li>
-                        <li><a href="http://www.treeptik.fr/expertise-java.html">Expertise et assistance</a></li>
-                        <li><a href="http://www.treeptik.fr/creation-site-internet.html">Création de Site Web</a></li>
-                    </ul>
-                </li>
-                <li><a data-description="Partage du savoir" href="http://www.treeptik.fr/formation-java.html">Les
-                    Formations</a>
-                    <ul>
-                        <li><a href="http://www.treeptik.fr/formation-java.html">Les cursus de formation</a></li>
-                        <li><a href="http://www.treeptik.fr/aide-au-recrutement.html">L'aide au recrutement</a></li>
-                    </ul>
-                </li>
-                <li class="current"><a data-description="Pour les techniciens" href="http://blog.treeptik.fr">Le
-                    Blog</a>
-                </li>
 
-                <li><a data-description="Nous trouver" href="http://www.treeptik.fr/contact.html">Contact</a>
-                </li>
-            </ul>
-        </nav>
+        {% include nav.html %}
+
         <!-- /nav-wrap -->
         <p>&nbsp;</p>
     </header>
@@ -178,6 +142,7 @@
 <!-- end-wrap -->
 <!-- End Document
 ================================================== -->
+<script type="text/javascript" src="{{ site.base}}/js/jquery.min.js"></script>
 <script type="text/javascript" src="{{ site.base }}/js/yalin-custom.js"></script>
 <script src="{{ site.base}}/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
@@ -188,23 +153,10 @@
 <script type="text/javascript" src="{{ site.base}}/js/nav-resp.js"></script>
 <!--<script type="text/javascript" src="{{ site.base}}/js/colorize.js"></script>-->
 <script type="text/javascript" src="http://blog.treeptik.fr/js/twitterfeed.js"></script>
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-39441538-1', 'treeptik.fr');
-    ga('send', 'pageview');
+{% include google_analytics.html %}
 
-</script>
+
 
 </body>
 </html>
