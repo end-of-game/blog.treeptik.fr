@@ -335,35 +335,35 @@ admin=d033e22ae348aeb5660fc2140aec35850c4da997,enabled,ROLE_ADMIN
 
 Enfin, il suffit juste de déployer le projet avec maven et de déployer le war dans CloudUnit. Avec le client shell, on se connecte aux serveurs Cloudunit et on crée une nouvelle application web basée sur tomcat 7 :
 
-{% include image.html url="/images/post/IMAGE1.png" %}
+{% include image-fancy.html url="/images/post/IMAGE1.png" %}
 
 On ajoute une base de données MySQL à l'application :
 
-{% include image.html url="/images/post/IMAGE2.png" %}
+{% include image-fancy.html url="/images/post/IMAGE2.png" %}
 
 On affiche ensuite les informations de la datasource afin de renseigner notre datasource :
 
-{% include image.html url="/images/post/IMAGE3.png" %}
+{% include image-fancy.html url="/images/post/IMAGE3.png" %}
 
 On déploie l'application dans le serveur grâce à la commande deploy:
 
-{% include image.html url="/images/post/IMAGE4.png" %}
+{% include image-fancy.html url="/images/post/IMAGE4.png" %}
 
 L'application est désormais accessible sur l'url http://lightadmin-johndoe-anonymous.cloudunit.dev/admin (login : admin, password : admin)
 
-{% include image.html url="/images/post/IMAGE5.png" %}
+{% include image-fancy.html url="/images/post/IMAGE5.png" %}
 
 L'interface d'administration permet d'afficher les objets User et Project, et le nombre d'entrées de chacun en base : 
 
-{% include image.html url="/images/post/IMAGE6.png" %}
+{% include image-fancy.html url="/images/post/IMAGE6.png" %}
 
 On peut créer des entités, les lister, les éditer, les supprimer. Le framework gère parfaitement les relations entre objets (ici, l'objet Project possède une liste d'Users, qu'on peut renseigner en piochant dans la liste des Users existants : 
 
-{% include image.html url="/images/post/IMAGE7.png" %}
+{% include image-fancy.html url="/images/post/IMAGE7.png" %}
 
-{% include image.html url="/images/post/IMAGE8.png" %}
+{% include image-fancy.html url="/images/post/IMAGE8.png" %}
 
-{% include image.html url="/images/post/IMAGE9.png" %}
+{% include image-fancy.html url="/images/post/IMAGE9.png" %}
 
 ###Les apports de LightAdmin :
 
@@ -374,7 +374,7 @@ On peut créer des entités, les lister, les éditer, les supprimer. Le framewor
 
 [Récupérer le projet d'exemple sur GitHub](https://github.com/Treeptik/LightAdminSample)
 
-[Visualiser le projet déployé sur notre plateforme](http://lightadmin-gmartial-treeptik.cloudunit.io/)
+[Visualiser le projet déployé sur notre plateforme](http://lightadmin-gmartial-treeptik.cloudunit.io/admin/)
 
 
 
