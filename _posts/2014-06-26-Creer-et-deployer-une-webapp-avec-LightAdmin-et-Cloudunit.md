@@ -286,7 +286,7 @@ public class ProjectAdministration extends AdministrationConfiguration<Project> 
 
 {% endhighlight %}
 
-* UserConfiguration.java :
+* UserAdministration.java :
 
 {% highlight java %}
 
