@@ -18,6 +18,7 @@ Icon
 _site/
 /php/twitteroauth/getTweets.php
 .idea/
+images/
 
 ### vim ###
 .*.s[a-w][a-z]
