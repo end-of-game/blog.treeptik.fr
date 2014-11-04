@@ -1,8 +1,8 @@
-title: "Treeptik Blog"
+title: "Le Blog de la Société TreeptiK | Cloud Computing | Développement Java EE | Virtualisation"
 url: "http://blog.treeptik.fr"
 author: "treeptik-team"
 email: "contact@treeptik.fr"
-description: "Blog des ingénieurs de treeptik"
+description: "Toute l'actualité du Cloud Computing et le développement d'applications Java JEE"
 
 paginate: 5
 
@@ -10,7 +10,7 @@ paginate: 5
 permalink: /:year/:month/:title
 
 markdown: rdiscount
-pygments: true
+highlighter: pygments
 
 exclude:
   - README.markdown

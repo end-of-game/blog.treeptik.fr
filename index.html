@@ -1,28 +1,28 @@
 ---
 layout: default
-title: Index blog
+title: Le Blog de la Société TreeptiK | Cloud Computing | Développement Java EE | Virtualisation
 ---
 
 <section id="main-content">
 
-{% for post in paginator.posts %}
+  {% for post in paginator.posts %}
 
-<article>
-<div class="date-sp-wrap">
-  <div class="blog-date-sp">
-    <h3>{{ post.date | date: "%d" }}</h3><span>{{ post.date | date: "%m" }}<br>{{ post.date | date: "%Y" }}</span>
-  </div>
-</div>
-<div class="ten columns omega blog-post">
-  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-  <div class="postmetadata">
-    <h6 class="blog-author"><strong>par</strong> {{ post.author }} </h6>
-    <h6 class="blog-author"><strong>tag</strong> 
-      {% for tag in post.tags %}
-        <a href="{{ site.url }}/tags.html#{{ tag | first | cgi_encode }}">{{ tag | first }}</a></li>
-      {% endfor %}
-    </h6>
-  </div>
+  <article>
+    <div class="date-sp-wrap">
+      <div class="blog-date-sp">
+        <h3>{{ post.date | date: "%d" }}</h3><span>{{ post.date | date: "%m" }}<br>{{ post.date | date: "%Y" }}</span>
+      </div>
+    </div>
+    <div class="ten columns omega blog-post">
+      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+      <div class="postmetadata">
+        <h6 class="blog-author"><strong>par</strong> {{ post.author }} </h6>
+        <h6 class="blog-author"><strong>tag</strong> 
+            {% for tag in post.tags %}
+            <a href="{{ site.url }}/tags.html#{{ tag | first | cgi_encode }}">{{ tag | first }}</a>
+            {% endfor %}
+        </h6>
+      </div>
   <!-- Bloc pour mettre une image a coté de l'article 
   <div class="four columns alpha blog2-img">
     <img src="images/blog-post-pic1-2.jpg">
@@ -37,40 +37,40 @@ title: Index blog
 
 <br class="clear">
 <div class="pagination2 pagination2-centered">
-<ul>
-{% if paginator.previous_page %}
-  {% if paginator.previous_page == 1 %}
-<li><a href='/' class='newer'>&laquo;</a></li>
-  {% else %}
-<a href="{{ paginator.previous_page_path }}" class='newer'>&laquo;</a></li>
-  {% endif %}
-  {% else %}
-<li class="disabled"><a href='/' class='newer'>&laquo;</a></li>
-  {% endif %}
+  <ul>
+    {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+    <li><a href='/' class='newer'>&laquo;</a></li>
+    {% else %}
+    <a href="{{ paginator.previous_page_path }}" class='newer'>&laquo;</a></li>
+    {% endif %}
+    {% else %}
+    <li class="disabled"><a href='/' class='newer'>&laquo;</a></li>
+    {% endif %}
 
-{% if paginator.page == 1 %}
-        <li class="active"><a href="#">1</a></li>
-      {% else %}
-        <li><a href="/">1</a></li>
-      {% endif %}
+    {% if paginator.page == 1 %}
+    <li class="active"><a href="#">1</a></li>
+    {% else %}
+    <li><a href="/">1</a></li>
+    {% endif %}
 
 
     {% for count in (2..paginator.total_pages) %}
-        {% if count == paginator.page %}
-<li class="active"><a href="#">{{ count }}</a></li>        
-{% else %}
- <li><a href="/page{{ count }}">{{ count }}</a></li>
-        {% endif %}
+    {% if count == paginator.page %}
+    <li class="active"><a href="#">{{ count }}</a></li>        
+    {% else %}
+    <li><a href="/page{{ count }}">{{ count }}</a></li>
+    {% endif %}
     {% endfor %}
 
-{% if paginator.next_page %}
-<li>  <a href="{{ paginator.next_page_path }}" class='older'>&raquo;</a></li>
-  {% else %}
-<li class="disabled"><a href='/' class='older'>&raquo;</a></li>
-{% endif %}
+    {% if paginator.next_page %}
+    <li>  <a href="{{ paginator.next_page_path }}" class='older'>&raquo;</a></li>
+    {% else %}
+    <li class="disabled"><a href='/' class='older'>&raquo;</a></li>
+    {% endif %}
 
 
-</ul>
+  </ul>
 </div>
 <div class="white-space"></div>
 
@@ -79,35 +79,35 @@ title: Index blog
 </section><!-- end-main-content -->
 
 <section id="sidebar">
-<div><input name="" type="text" placeholder="Recherchez ..." class="search-side" ></div>
+  <div><input name="" type="text" placeholder="Recherchez ..." class="search-side" ></div>
 
-<h4 class="subtitle">Tags</h4>
-<ul>
-  {% for tag in site.tags %}
-    <li class="tag-box"><a href="{{ site.url }}/tags.html#{{ tag | first | cgi_encode }}">{{ tag | first }}</a></li>
-  {% endfor %}
-</ul>
-
-<br class="clear">
-
-<h4 class="subtitle">Archives</h4>
-<div class="listbox1">
+  <h4 class="subtitle">Tags</h4>
   <ul>
-    {% for post in site.posts %}
+    {% for tag in site.tags %}
+    <li class="tag-box"><a href="{{ site.url }}/tags.html#{{ tag | first | cgi_encode }}">{{ tag | first }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <br class="clear">
+
+  <h4 class="subtitle">Archives</h4>
+  <div class="listbox1">
+    <ul>
+      {% for post in site.posts %}
       <li>
         <a href="{{ post.url }}">{{ post.title }}</a>
       </li>
-    {% endfor %}
-  </ul>
-</div><!-- end-listbox1 -->
+      {% endfor %}
+    </ul>
+  </div><!-- end-listbox1 -->
 
-<br class="clear">
-<br/>
-<br/>
-<a class="follow-box" href="https://twitter.com/treeptikteam">
-  <h4>Suivez <strong>@treeptikTeam</strong></h4>
-</a>
+  <br class="clear">
+  <br/>
+  <br/>
+  <a class="follow-box" href="https://twitter.com/treeptikteam">
+    <h4>Suivez <strong>@treeptikTeam</strong></h4>
+  </a>
 
-<br class="clear">
+  <br class="clear">
 
 </section><!-- end-sidebar-->
