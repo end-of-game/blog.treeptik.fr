@@ -17,9 +17,9 @@ title: Le Blog de la Société TreeptiK | Cloud Computing | Développement Java 
       <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
       <div class="postmetadata">
         <h6 class="blog-author"><strong>par</strong> {{ post.author }} </h6>
-        <h6 class="blog-author"><strong>tag</strong> 
+        <h6 class="blog-author"><strong>tags: </strong> 
             {% for tag in post.tags %}
-            <a href="{{ site.url }}/tags.html#{{ tag | first | cgi_encode }}">{{ tag | first }}</a>
+            <a href="{{ site.url }}/tags.html#{{ tag }}">{{ tag }}</a>
             {% endfor %}
         </h6>
       </div>

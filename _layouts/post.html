@@ -13,9 +13,9 @@ layout: default
   <h3><a href="{{ site.url }}{{ page.url }}" rel="bookmark permalink" title="Permanent link to this post">{{ page.title }}</a></h3>
   <div class="postmetadata">
     <h6 class="blog-author"><strong>par</strong> {{ page.author }} </h6>
-    <h6 class="blog-author"><strong>tag : </strong>
+    <h6 class="blog-author"><strong>tags : </strong>
       {% for tag in page.tags %}
-        <a href="{{ site.url }}/tags.html#{{ tag | first | cgi_encode }}">{{ tag | first }}</a>
+        <a href="{{ site.url }}/tags.html#{{ tag }}">{{ tag }}</a>
       {% endfor %}
     </h6>
   </div>
